@@ -26,7 +26,7 @@ if __name__ == "__main__":
     full_res = []
     for d in dirs:
         data_s = toCoop if "coopResult" in d else toVersus
-        out = subprocess.check_output(["cblite", "cat", "--raw", d, "*"], encoding="utf8")
+        out = subprocess.check_output(["./cblite", "cat", "--raw", d, "*"], encoding="utf8")
         full_res.extend(data_s(out.splitlines()))
 
     json.dump(full_res, open(f"converted_{int(time.time())}.json", "w"))
